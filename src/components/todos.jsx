@@ -2,15 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { deleteTodo, editTodo, updateTodo } from '../actions/todo-actions-creator';
+import Todo from './todo'
 
 class Todos extends Component {
     render() {
-        const deleteTodo = todo => {
-            this.props.onDeleteTodo(todo);
-        }
-        const handleTodoEdit = todo => {
-            this.props.onEditTodo(todo)
-        }
         const handleEditSubmit = (e, todo) => {
             e.preventDefault();
             let newName = this.getName.value;
@@ -23,6 +18,9 @@ class Todos extends Component {
             }
             this.props.onUpdateTodo(updatedData)
         }
+        const handleTodoEdit = todo => {
+            this.props.onEditTodo(todo)
+        }
         return (
             <div>
                 <h3>All Posts</h3>
@@ -31,16 +29,7 @@ class Todos extends Component {
                         <div key={i}>
                             {todo.onEdit !== true ? (
                                 <React.Fragment>
-                                    <p><b>Name: </b>{todo.name}</p>
-                                    <p><b>Text: </b>{todo.text}</p>
-                                    <div>
-                                        <button
-                                            className="btn btn-danger"
-                                            onClick={() => deleteTodo(todo.name)}>Delete</button>
-                                        <button
-                                            className="btn btn-primary"
-                                            onClick={() => handleTodoEdit(todo)}>Edit</button>
-                                    </div>
+                                    <Todo todo={todo} />
                                 </React.Fragment>
                             ): (
                                 <div>
