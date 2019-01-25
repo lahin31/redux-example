@@ -49,8 +49,10 @@ class Todos extends Component {
                                             defaultValue={todo.text}
                                             className="col-md-6 form-control"
                                             ref={text => this.getText = text}></textarea>
-                                        <button className="btn btn-primary">Save</button><br />
-                                        <button className="btn btn-danger"  onClick={() => handleTodoEdit(todo)}>Cancel</button>
+                                        <div style={{display: 'flex', marginTop: '10px'}}>
+                                            <button className="btn btn-primary">Save</button><br />
+                                            <button className="btn btn-danger"  onClick={() => handleTodoEdit(todo)} style={{ marginLeft: "10px"}}>Cancel</button>
+                                        </div>
                                     </form>
                                 </div>
                             )}

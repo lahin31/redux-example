@@ -22,7 +22,8 @@ class Todo extends Component {
                         onClick={() => deleteTodo(this.props.todo.name)}>Delete</button>
                     <button
                         className="btn btn-primary"
-                        onClick={() => handleTodoEdit(this.props.todo)}>Edit</button>
+                        onClick={() => handleTodoEdit(this.props.todo)}
+                        style={{ marginLeft: "10px" }}>Edit</button>
                 </div>
             </div>
         );
